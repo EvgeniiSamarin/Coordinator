@@ -23,6 +23,13 @@
 		7D8DAB74276C93BD005715B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB73276C93BD005715B5 /* LoginViewController.swift */; };
 		7D8DAB76276C93DA005715B5 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB75276C93DA005715B5 /* PasswordViewController.swift */; };
 		7D8DAB7B276C9468005715B5 /* MessagePresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB7A276C9468005715B5 /* MessagePresenting.swift */; };
+		7D8DAB7E276C982D005715B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB7D276C982D005715B5 /* MainViewController.swift */; };
+		7D8DAB81276C98C6005715B5 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB80276C98C6005715B5 /* URLSession+Extension.swift */; };
+		7D8DAB83276C98D3005715B5 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB82276C98D3005715B5 /* URLRequest+Extension.swift */; };
+		7D8DAB85276C98DF005715B5 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB84276C98DF005715B5 /* URLComponents+Extension.swift */; };
+		7D8DAB88276C9937005715B5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB87276C9937005715B5 /* APIManager.swift */; };
+		7D8DAB8A276C99F7005715B5 /* RandomUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB89276C99F7005715B5 /* RandomUserResponse.swift */; };
+		7D8DAB8C276C9A71005715B5 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB8B276C9A71005715B5 /* Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,13 @@
 		7D8DAB73276C93BD005715B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7D8DAB75276C93DA005715B5 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		7D8DAB7A276C9468005715B5 /* MessagePresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePresenting.swift; sourceTree = "<group>"; };
+		7D8DAB7D276C982D005715B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7D8DAB80276C98C6005715B5 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		7D8DAB82276C98D3005715B5 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		7D8DAB84276C98DF005715B5 /* URLComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Extension.swift"; sourceTree = "<group>"; };
+		7D8DAB87276C9937005715B5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		7D8DAB89276C99F7005715B5 /* RandomUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserResponse.swift; sourceTree = "<group>"; };
+		7D8DAB8B276C9A71005715B5 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +90,7 @@
 		7D8DAB43276C8A9D005715B5 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				7D8DAB7F276C98B0005715B5 /* Services */,
 				7D8DAB77276C9433005715B5 /* Tools */,
 				7D8DAB70276C9374005715B5 /* Models */,
 				7D8DAB61276C8C14005715B5 /* VC */,
@@ -121,6 +136,7 @@
 		7D8DAB61276C8C14005715B5 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				7D8DAB7C276C981E005715B5 /* Main */,
 				7D8DAB6D276C930C005715B5 /* Registration */,
 				7D8DAB65276C8D0B005715B5 /* Start */,
 			);
@@ -148,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				7D8DAB71276C937E005715B5 /* User.swift */,
+				7D8DAB89276C99F7005715B5 /* RandomUserResponse.swift */,
+				7D8DAB8B276C9A71005715B5 /* Name.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +192,33 @@
 				7D8DAB7A276C9468005715B5 /* MessagePresenting.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7D8DAB7C276C981E005715B5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DAB7D276C982D005715B5 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7D8DAB7F276C98B0005715B5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DAB86276C9925005715B5 /* APIManager */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7D8DAB86276C9925005715B5 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DAB80276C98C6005715B5 /* URLSession+Extension.swift */,
+				7D8DAB82276C98D3005715B5 /* URLRequest+Extension.swift */,
+				7D8DAB84276C98DF005715B5 /* URLComponents+Extension.swift */,
+				7D8DAB87276C9937005715B5 /* APIManager.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +304,16 @@
 				7D8DAB5D276C8B78005715B5 /* FlowCoordinator.swift in Sources */,
 				7D8DAB69276C8D93005715B5 /* StartCoordinator.swift in Sources */,
 				7D8DAB76276C93DA005715B5 /* PasswordViewController.swift in Sources */,
+				7D8DAB7E276C982D005715B5 /* MainViewController.swift in Sources */,
 				7D8DAB45276C8A9D005715B5 /* AppDelegate.swift in Sources */,
+				7D8DAB83276C98D3005715B5 /* URLRequest+Extension.swift in Sources */,
+				7D8DAB8A276C99F7005715B5 /* RandomUserResponse.swift in Sources */,
+				7D8DAB85276C98DF005715B5 /* URLComponents+Extension.swift in Sources */,
 				7D8DAB47276C8A9D005715B5 /* SceneDelegate.swift in Sources */,
+				7D8DAB88276C9937005715B5 /* APIManager.swift in Sources */,
+				7D8DAB8C276C9A71005715B5 /* Name.swift in Sources */,
 				7D8DAB60276C8C0C005715B5 /* MainCoordinator.swift in Sources */,
+				7D8DAB81276C98C6005715B5 /* URLSession+Extension.swift in Sources */,
 				7D8DAB72276C937E005715B5 /* User.swift in Sources */,
 				7D8DAB5B276C8B71005715B5 /* Coordinator.swift in Sources */,
 				7D8DAB74276C93BD005715B5 /* LoginViewController.swift in Sources */,
