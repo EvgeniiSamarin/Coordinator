@@ -40,17 +40,14 @@ final class StartCoordinator: Coordinator {
         vc.completionHandler = { [weak self] selectedFlow in
             switch selectedFlow {
             case .main:
-                self?.showMainFlow()
+                self?.flowCompletionHandler?()
+
             case .forgotPassword:
                 self?.showForgotPasswordFlow()
             }
         }
         
         navigationController.setViewControllers([vc], animated: true)
-    }
-
-    func showMainFlow() {
-        // TODO: - Main Coordinator
     }
 
     func showForgotPasswordFlow() {

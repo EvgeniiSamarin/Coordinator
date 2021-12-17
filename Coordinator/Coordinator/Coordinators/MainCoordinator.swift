@@ -27,6 +27,11 @@ final class MainCoordinator: Coordinator {
     // MARK: - Instance Methods
 
     func start() {
-        // TODO: -
+        let vc = MainViewController()
+        vc.completionHandler = { [weak self] in
+            self?.flowCompletionHandler?()
+        }
+
+        navigationController.setViewControllers([vc], animated: true)
     }
 }
