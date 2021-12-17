@@ -19,12 +19,15 @@ final class StartViewController: UIViewController, FlowController, MessagePresen
     private lazy var loginInput: UITextField = {
         let view = UITextField()
         view.placeholder = "Enter Login"
+        view.borderStyle = .roundedRect
         return view
     }()
 
     private lazy var passwordInput: UITextField = {
         let view = UITextField()
         view.placeholder = "Enter Password"
+        view.isSecureTextEntry = true
+        view.borderStyle = .roundedRect
         return view
     }()
 
@@ -58,6 +61,7 @@ final class StartViewController: UIViewController, FlowController, MessagePresen
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.center.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
 
