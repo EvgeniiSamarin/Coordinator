@@ -54,7 +54,15 @@ final class StartCoordinator: Coordinator {
     }
 
     func showForgotPasswordFlow() {
-        // TODO:
+        let registrationCoordinator = RegistrationCoordinator(
+            navigationController: navigationController
+        )
+        childCoordinators.append(registrationCoordinator)
+        registrationCoordinator.flowCompletionHandler = { [weak self] in
+            self?.childCoordinators.removeAll()
+            self?.flowCompletionHandler?()
+        }
+        registrationCoordinator.start()
     }
 }
 
