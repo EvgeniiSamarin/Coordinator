@@ -25,12 +25,13 @@ final class StartCoordinator: Coordinator {
     //MARK: -
 
     private var childCoordinators: [Coordinator] = []
-    // TODO: - User Service
+    private let userService: UserService
 
     //MARK: - Initializer
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, userService: UserService) {
         self.navigationController = navigationController
+        self.userService = userService
     }
 
     // MARK: - Instance Methods
@@ -52,7 +53,8 @@ final class StartCoordinator: Coordinator {
 
     func showForgotPasswordFlow() {
         let registrationCoordinator = RegistrationCoordinator(
-            navigationController: navigationController
+            navigationController: navigationController,
+            userService: userService
         )
         childCoordinators.append(registrationCoordinator)
         registrationCoordinator.flowCompletionHandler = { [weak self] in

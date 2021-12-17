@@ -17,7 +17,7 @@ class AppCoordinator: Coordinator {
     // MARK: -
 
     private var childCoordinators: [Coordinator] = []
-    // TODO: - UserService
+    private let userService = UserService()
 
     // MARK: - Initializer
 
@@ -28,27 +28,29 @@ class AppCoordinator: Coordinator {
     // MARK: - Instance Methods
 
     func start() {
-        // TODO: - Check Auth User
-        self.showStartFlow()
+        let isAuthorized = userService.isUserAuth
+        isAuthorized ? showMainFlow() : showStartFlow()
     }
 
     private func showStartFlow() {
-        let startCoordinator = StartCoordinator(navigationController: navigationController)
+        let startCoordinator = StartCoordinator(navigationController: navigationController, userService: userService)
         childCoordinators.append(startCoordinator)
         startCoordinator.flowCompletionHandler = { [weak self] in
             guard let self = self else { return }
             self.childCoordinators.removeAll { $0 === startCoordinator }
+            self.userService.isUserAuth = true
             self.showMainFlow()
         }
         startCoordinator.start()
     }
 
     private func showMainFlow() {
-        let mainCoordinator = MainCoordinator(navigationController: navigationController)
+        let mainCoordinator = MainCoordinator(navigationController: navigationController, userService: userService)
         childCoordinators.append(mainCoordinator)
         mainCoordinator.flowCompletionHandler = { [weak self] in
             guard let self = self else { return }
             self.childCoordinators.removeAll { $0 === mainCoordinator }
+            self.userService.isUserAuth = false
             self.showStartFlow()
         }
         mainCoordinator.start()

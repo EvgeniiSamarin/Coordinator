@@ -11,7 +11,11 @@ struct Name: Codable {
 
     // MARK: - Instance properties
 
-    let title: String
-    let first: String
-    let last: String
+    let title: String?
+    let first: String?
+    let last: String?
+
+    private enum CodingKeys : String, CodingKey {
+        case title = "title", first = "first", last = "last"
+    }
 }

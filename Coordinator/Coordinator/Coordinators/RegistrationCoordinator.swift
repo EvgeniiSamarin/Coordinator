@@ -17,14 +17,15 @@ final class RegistrationCoordinator: Coordinator {
     // MARK: -
 
     private var childCoordinators: [Coordinator] = []
-    // TODO: - User Service
+    private let userService: UserService
 
     private var user = User(login: "", password: "")
 
     // MARK: - Initializer
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, userService: UserService) {
         self.navigationController = navigationController
+        self.userService = userService
     }
 
     // MARK: - Instance Methods

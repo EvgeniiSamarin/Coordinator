@@ -17,11 +17,13 @@ final class MainCoordinator: Coordinator {
     // MARK: -
 
     private var childCoordinators: [Coordinator] = []
+    private let userService: UserService
 
     // MARK: - Initializer
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, userService: UserService) {
         self.navigationController = navigationController
+        self.userService = userService
     }
 
     // MARK: - Instance Methods
