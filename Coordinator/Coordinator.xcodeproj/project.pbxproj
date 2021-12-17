@@ -30,6 +30,8 @@
 		7D8DAB88276C9937005715B5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB87276C9937005715B5 /* APIManager.swift */; };
 		7D8DAB8A276C99F7005715B5 /* RandomUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB89276C99F7005715B5 /* RandomUserResponse.swift */; };
 		7D8DAB8C276C9A71005715B5 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB8B276C9A71005715B5 /* Name.swift */; };
+		7D8DAB8E276CA4BB005715B5 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB8D276CA4BB005715B5 /* Results.swift */; };
+		7D8DAB90276CAF15005715B5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DAB8F276CAF15005715B5 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		7D8DAB87276C9937005715B5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		7D8DAB89276C99F7005715B5 /* RandomUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserResponse.swift; sourceTree = "<group>"; };
 		7D8DAB8B276C9A71005715B5 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		7D8DAB8D276CA4BB005715B5 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		7D8DAB8F276CAF15005715B5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 				7D8DAB71276C937E005715B5 /* User.swift */,
 				7D8DAB89276C99F7005715B5 /* RandomUserResponse.swift */,
 				7D8DAB8B276C9A71005715B5 /* Name.swift */,
+				7D8DAB8D276CA4BB005715B5 /* Results.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				7D8DAB86276C9925005715B5 /* APIManager */,
+				7D8DAB8F276CAF15005715B5 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -300,8 +306,10 @@
 				7D8DAB64276C8D02005715B5 /* AppCoordinator.swift in Sources */,
 				7D8DAB67276C8D15005715B5 /* StartViewController.swift in Sources */,
 				7D8DAB7B276C9468005715B5 /* MessagePresenting.swift in Sources */,
+				7D8DAB8E276CA4BB005715B5 /* Results.swift in Sources */,
 				7D8DAB6F276C9323005715B5 /* RegistrationCoordinator.swift in Sources */,
 				7D8DAB5D276C8B78005715B5 /* FlowCoordinator.swift in Sources */,
+				7D8DAB90276CAF15005715B5 /* UserService.swift in Sources */,
 				7D8DAB69276C8D93005715B5 /* StartCoordinator.swift in Sources */,
 				7D8DAB76276C93DA005715B5 /* PasswordViewController.swift in Sources */,
 				7D8DAB7E276C982D005715B5 /* MainViewController.swift in Sources */,

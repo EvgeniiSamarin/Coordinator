@@ -64,9 +64,14 @@ final class PasswordViewController: UIViewController, FlowController, MessagePre
     @objc
     private func nextButtonPressed() {
         guard let password = passwordTextField.text,
-              !password.isEmpty
+              let repeatPassword = repeatPasswordTextField.text,
+              !password.isEmpty && !repeatPassword.isEmpty
         else {
             self.showMessage(withTitle: "Invalid password", message: "Password must not be empty")
+            return
+        }
+        if !(password == repeatPassword) {
+            self.showMessage(withTitle: "Invalid password", message: "Password missmatch")
             return
         }
 

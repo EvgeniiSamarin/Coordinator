@@ -26,8 +26,25 @@ final class MainViewController: UIViewController, MessagePresenting {
         return barButtonItem
     }()
 
-    private lazy var label: UILabel = {
+    private lazy var genderLabel: UILabel = {
         let label = UILabel()
+        label.text = "Gender:"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+
+    private lazy var firstNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "First name:"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+
+    private lazy var lastNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Last name:"
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -38,6 +55,13 @@ final class MainViewController: UIViewController, MessagePresenting {
         button.setTitle("Sign Out", for: .normal)
         button.addTarget(self, action: #selector(signOutButtonPressed), for: .touchUpInside)
         return button
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [genderLabel, firstNameLabel, lastNameLabel, signOutButton])
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        return stackView
     }()
 
     // MARK: - LifeCycle Methods
@@ -56,18 +80,12 @@ final class MainViewController: UIViewController, MessagePresenting {
     // MARK: - Instance Methdos
 
     private func addSubviews() {
-        view.addSubview(label)
-        view.addSubview(signOutButton)
+        view.addSubview(stackView)
     }
 
     private func makeConstraints() {
-        label.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        signOutButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(label.snp.bottom).offset(16)
+        stackView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
 
@@ -82,7 +100,33 @@ final class MainViewController: UIViewController, MessagePresenting {
     }
 
     private func loadActivity() {
-        self.userSubscriber = APIManager.shared.getRandomCatFact()
+        var urlRequest = URLRequest(url: URL(string: "https://randomuser.me/api/")!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        
+//        self.userSubscriber = URLSession.shared.dataTaskPublisher(for: urlRequest)
+//            .receive(on: DispatchQueue.main)
+//            .sink { completion in
+//                switch completion {
+//                case .failure(let error):
+//                    self.showMessage(withTitle: "Error", message: error.localizedDescription)
+//                    break
+//
+//                case .finished:
+//                    break
+//                }
+//            } receiveValue: { user in
+//                guard let data = try? JSONSerialization.jsonObject(with: user.data, options: .allowFragments) as? [String: Any] else {
+//                    return
+//                }
+//                guard let results = data["results"] as? [String: Any] else {
+//                    return
+//                }
+//                for (key, value) in results {
+//                    print("\(key) -> \(value) \n")
+//                }
+//            }
+        self.userSubscriber = APIManager.shared.getRandomUser()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -93,8 +137,10 @@ final class MainViewController: UIViewController, MessagePresenting {
                 case .finished:
                     break
                 }
-            } receiveValue: { user in
-                print("---> \(user)")
+            } receiveValue: { [weak self] user in
+                self?.firstNameLabel.text = "GENDER: \(user.results?.name?.first ?? "")"
+                self?.lastNameLabel.text = "firstName: \(user.results?.name?.last ?? "")"
+                self?.genderLabel.text = "firstName: \(user.results?.name?.last ?? "")"
             }
 
     }

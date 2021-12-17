@@ -16,7 +16,7 @@ final class APIManager {
 
     // MARK: - Instance Methods
 
-    func getRandomCatFact() -> AnyPublisher<RandomUserResponse, Error> {
+    func getRandomUser() -> AnyPublisher<Results, Error> {
         let request: URLRequest = .getRandomUserInfo()
 
         return URLSession.shared.fetch(for: request)

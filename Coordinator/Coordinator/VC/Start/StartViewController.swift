@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class StartViewController: UIViewController, FlowController {
+final class StartViewController: UIViewController, FlowController, MessagePresenting {
 
     // MARK: - CompletionHandler
 
@@ -37,7 +37,7 @@ final class StartViewController: UIViewController, FlowController {
 
     private lazy var forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("ForgotPassword", for: .normal)
+        button.setTitle("Forgot password", for: .normal)
         button.addTarget(self, action: #selector(forgotButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -65,6 +65,13 @@ final class StartViewController: UIViewController, FlowController {
 
     @objc
     private func signInButtonPressed() {
+        guard let password = passwordInput.text,
+              let login = loginInput.text,
+              !password.isEmpty && !login.isEmpty
+        else {
+            self.showMessage(withTitle: "Invalid credentinals", message: "Password and Login must not be empty")
+            return
+        }
         completionHandler?(.main)
     }
 
